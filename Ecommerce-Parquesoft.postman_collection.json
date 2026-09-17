@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "E-Commerce API Parquesoft",
+    "description": "Colección de pruebas para la Sesión 10 del curso Java 2.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Módulo Productos",
+      "item": [
+        {
+          "name": "1.1 Obtener todos los Productos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/products",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.2 Crear Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Monitor 4K Samsung\",\r\n  \"price\": 1200.0,\r\n  \"sku\": \"MON-001\",\r\n  \"stock\": 15\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/products",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.3 Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Monitor 4K Samsung (Actualizado)\",\r\n  \"price\": 1100.0,\r\n  \"sku\": \"MON-001\",\r\n  \"stock\": 10\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/products/1",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "products", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Módulo Clientes",
+      "item": [
+        {
+          "name": "2.1 Obtener Clientes VIP",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/customers/vip?minPoints=50",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "customers", "vip"],
+              "query": [
+                { "key": "minPoints", "value": "50" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.2 Crear Cliente (Prueba Lógica Negocio)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Andrés Hacker\",\r\n  \"email\": \"andres@hacker.com\",\r\n  \"loyaltyPoints\": -500\r\n}"
+            },
+            "description": "Prueba enviando puntos negativos. El backend debería ajustarlo a 0 automáticamente.",
+            "url": {
+              "raw": "http://localhost:8080/api/customers",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "customers"]
+            }
+          }
+        },
+        {
+          "name": "2.3 Eliminar Cliente (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/api/customers/1",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "customers", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

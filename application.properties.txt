@@ -1,0 +1,16 @@
+############################################# POSTGRES EN SU MAQUINA ################################################
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/ecommerce_db
+spring.datasource.username=postgres
+spring.datasource.password=root
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+
+
+############################################# DOCKER ################################################
+
+spring.datasource.url=jdbc:postgresql://localhost:5433/ecommerce_db
+spring.datasource.username=postgres
+spring.datasource.password=root
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
